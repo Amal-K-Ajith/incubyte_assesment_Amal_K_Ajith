@@ -27,5 +27,8 @@ public class StringCalTest {
             sc.add("//#\n-3#-4#5#-6");
         });
         assertEquals("Negative Not Allowed and numbers are -3,-4,-6,", thrown.getMessage());
+        assertEquals(6,sc.add("//[**]\n1**2**3"));
+        assertEquals(7,sc.add("//[||]\n1||2||4"));
+        assertEquals(6,sc.add("//[+++]\n1+++2+++3"));
     }
 }
