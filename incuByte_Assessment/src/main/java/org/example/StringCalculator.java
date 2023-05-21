@@ -1,22 +1,20 @@
 package org.example;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.Assert.*;
-
-import static org.hamcrest.CoreMatchers.*;
 
 
 public class StringCalculator {
 
     int add(String st) throws Exception {
-        char[] ch =st.toCharArray();
+        st=st.replaceAll("\n",",");
+        String [] ch =st.split("[,. \n]");
         int sum=0;
-        for(char c:ch){
-            if(c=='-')throw new NegativeNotAllowedException();
-            if(c>='0' && c<='9')
-             sum+=Integer.parseInt(c+"");
+        for(String s:ch){
+            if(s=="")continue;
+            int num=Integer.parseInt(s);
+            if(num<0)throw new NegativeNotAllowedException();
+            sum=sum+num;
         }
+        System.out.println();
         return sum;
     }
 }

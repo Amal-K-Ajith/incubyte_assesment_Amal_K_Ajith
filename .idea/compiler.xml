@@ -9,5 +9,8 @@
         <module name="incuByte_Assessment" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="junit-5-basics" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

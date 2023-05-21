@@ -2,16 +2,22 @@ package org.example;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertEquals;
 
 public class StringCalTest {
     StringCalculator sc=new StringCalculator();
-    @Test(expected = NegativeNotAllowedException.class)
+    @Test
     public void test1() throws Exception {
-        assertThat(sc.add("1 1"), is(2));
-        assertThat(sc.add("3,4"), is(7));
-        assertThat(sc.add("3,4.5"), is(12));
-        assertThat(sc.add("3,-4"), is(new NegativeNotAllowedException()));
+        assertEquals(sc.add("1 1"), 2);
+        assertEquals(sc.add("3,4"), 7);
+        assertEquals(sc.add("3,4.5"), 12);
+        assertEquals(sc.add("12 1"),13);
+        NegativeNotAllowedException thrown = Assertions.assertThrows(NegativeNotAllowedException.class, () -> {
+            sc.add("3,-4");
+        });
+        Assertions.assertEquals("Negative Not Allowed", thrown.getMessage());
     }
 }
