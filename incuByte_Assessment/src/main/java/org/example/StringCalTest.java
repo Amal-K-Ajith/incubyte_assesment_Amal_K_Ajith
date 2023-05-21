@@ -19,5 +19,7 @@ public class StringCalTest {
             sc.add("3,-4");
         });
         Assertions.assertEquals("Negative Not Allowed", thrown.getMessage());
+        assertEquals(sc.add("10\n 12"),22);
+        assertEquals(sc.add("//;\n 1;2"),3);
     }
 }
