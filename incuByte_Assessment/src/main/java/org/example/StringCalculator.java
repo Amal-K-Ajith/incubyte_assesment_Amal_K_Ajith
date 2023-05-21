@@ -13,6 +13,7 @@ public class StringCalculator {
         char[] ch =st.toCharArray();
         int sum=0;
         for(char c:ch){
+            if(c=='-')throw new NegativeNotAllowedException();
             if(c>='0' && c<='9')
              sum+=Integer.parseInt(c+"");
         }
