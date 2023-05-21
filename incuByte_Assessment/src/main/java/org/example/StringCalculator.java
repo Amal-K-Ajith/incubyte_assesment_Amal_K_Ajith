@@ -9,8 +9,8 @@ import static org.hamcrest.CoreMatchers.*;
 
 public class StringCalculator {
 
-    int add(String st){
-        char ch[]=st.toCharArray();
+    int add(String st) throws Exception {
+        char[] ch =st.toCharArray();
         int sum=0;
         for(char c:ch){
             if(c>='0' && c<='9')
